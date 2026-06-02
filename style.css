@@ -1,0 +1,16 @@
+div.stButton > button {
+    width: 80px;
+    height: 40px;
+    font-size: 12px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    background-color: #f8f9fa;
+}
+div.stButton > button:hover {
+    background-color: #e0e0e0;
+    border-color: #aaa;
+}
+
+section[data-testid="stSidebar"] {
+    width: 10px !important;
+}
