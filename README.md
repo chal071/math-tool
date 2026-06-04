@@ -16,5 +16,6 @@ Una herramienta interactiva para aprender matemáticas.
 - Matplotlib
 
 ## Cómo ejecutar
-pip install streamlit sympy numpy matplotlib
-streamlit run app.py
+``pip install streamlit sympy numpy matplotlib``
+
+``streamlit run app.py``
