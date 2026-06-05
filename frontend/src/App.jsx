@@ -3,11 +3,15 @@ import { useState } from 'react'
 function App() {
   const [funcion, setFuncion] = useState('')
   const [resultado, setResultado] = useState('')
+  const [imagen, setImagen] = useState('')
 
   const calcular = async (tipo) => {
     const response = await fetch(`http://localhost:8000/${tipo}?funcion=${encodeURIComponent(funcion)}`)
+    const base64 = await fetch(`http://localhost:8000/grafico?funcion=${encodeURIComponent(funcion)}`)
     const data = await response.json()
+    const graficoData = await base64.json()
     setResultado(data.resultado)
+    setImagen(graficoData.imagen)  
   }
   
   return (
@@ -22,6 +26,7 @@ function App() {
       <button onClick={() => calcular('derivada')}>Calcular Derivada</button>
       <button onClick={() => calcular('resolver-ecuacion')}>Resolver Ecuacion</button>
       <p>Resultado: {resultado}</p>
+      <img src={`data:image/png;base64,${imagen}`} />
     </div>
   )
 }
