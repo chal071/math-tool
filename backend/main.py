@@ -23,7 +23,8 @@ def calcular_integral(funcion: str):
         f = sp.sympify(funcion)
         resultado = sp.integrate(f, x)
         return {
-            "resultado" : str(resultado) 
+            "resultado" : str(resultado),
+            "latex": sp.latex(resultado)
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -34,7 +35,8 @@ def calcular_derivada(funcion: str):
         f = sp.sympify(funcion)
         resultado = sp.diff(f, x)
         return {
-            "resultado" : str(resultado)
+            "resultado" : str(resultado),
+            "latex": sp.latex(resultado)
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -45,7 +47,8 @@ def resolver_ecuacion(funcion: str):
         f = sp.sympify(funcion)
         resultado = sp.solve(f, x)
         return {
-            "resultado" : str(resultado)
+            "resultado" : str(resultado),
+            "latex": sp.latex(resultado)
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
